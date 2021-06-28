@@ -36,7 +36,7 @@ def generarExcel(nombre_archivo: str):
             cant_antes_jugar = jugada['monto_antes']
             apuesta = jugada['apuesta']
             numero_aleatorio = jugada['rand']
-            victoria = 'si' if (jugada['victoria'] == 'true') else 'no'
+            victoria = 'si' if (jugada['victoria'] == True) else 'no'
             cant_luego_jugar = jugada['nuevo_monto']
             meta = record['meta_alcanzada']
             rows.append([numero_corrida, cant_antes_jugar, apuesta, numero_aleatorio, victoria, cant_luego_jugar, meta])
