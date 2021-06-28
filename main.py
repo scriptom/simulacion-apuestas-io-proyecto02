@@ -1,6 +1,23 @@
+import argparse
 import json
 from random import random
 from datetime import datetime
+
+parser = argparse.ArgumentParser(
+    description="Simula un juego de apuestas dado un monto inicial, una apuesta inicial y el numero de corridas a realizar")
+parser.add_argument('-m', '--monto-inicial', help='Monto inicial para empezar cada corrida. Default: 60',
+                    metavar='MONTO',
+                    default=60)
+parser.add_argument('-a', '--apuesta-inicial', help='Apuesta inicial para empezar cada corrida. Default: 10',
+                    metavar='APUESTA', default=10)
+parser.add_argument('-n', '--numero-corridas', help="Número de corridas a utilizar. Default: 50",
+                    metavar='num_corridas', default=50)
+parser.add_argument('-i', '--interactivo',
+                    help="Ejecuta el programa en modo interactivo. NOTA: Esta opción ignorará los parámetros ingresados por CLI",
+                    action='store_true', default=False)
+parser.add_argument('-f', '--filename',
+                    help="Nombre de archivo personalizado. Si no se especifica, se tomará el timestamp actual",
+                    default=f'simulacion-{datetime.now().timestamp()}.json')
 
 
 def jugar(monto_inicial: int, apuesta_inicial: int) -> dict:
@@ -28,12 +45,18 @@ def jugar(monto_inicial: int, apuesta_inicial: int) -> dict:
 
 
 if __name__ == "__main__":
-    m = int(input("Ingrese monto inicial: "))
-    a = int(input("Ingrese apuesta inicial: "))
-    c = int(input("Ingrese num corridas: "))
+    args = parser.parse_args()
+    if args.interactivo:
+        m = int(input("Ingrese monto inicial: "))
+        a = int(input("Ingrese apuesta inicial: "))
+        c = int(input("Ingrese num corridas: "))
+    else:
+        m = int(args.monto_inicial)
+        a = int(args.apuesta_inicial)
+        c = int(args.numero_corridas)
     corridas = []
     for i in range(c):
         corridas.append(jugar(m, a))
-    with open(filename := f'simulacion-{datetime.now().timestamp()}.json', 'w') as f:
+    with open(filename := args.filename, 'w') as f:
         json.dump(corridas, f, indent=4)
     print(f'Resultados de simulación guardados en "{filename}"')

@@ -19,12 +19,21 @@ llegar a la meta?, ¿cuál es la ganancia esperada?. Realice 50 corridas.
 
 `git clone https://github.com/scriptom/simulacion-apuestas-io-proyecto02`
 
-- Instalar dependencias
 
-`pip install -r requirements.txt`
+- Uso del programa
 
-- Ejecutar
+```
+usage: python main.py [-h] [-m MONTO] [-a APUESTA] [-n num_corridas] [-i] [-f FILENAME]
+optional arguments:
+  -h, --help            show this help message and exit
+  -m MONTO, --monto-inicial MONTO
+                        Monto inicial para empezar cada corrida. Default: 60
+  -a APUESTA, --apuesta-inicial APUESTA
+                        Apuesta inicial para empezar cada corrida. Default: 10
+  -n num_corridas, --numero-corridas num_corridas
+                        Número de corridas a utilizar. Default: 50
+  -i, --interactivo     Ejecuta el programa en modo interactivo. NOTA: Esta opción ignorará los parámetros ingresados por CLI
+  -f FILENAME, --filename FILENAME
+                        Nombre de archivo personalizado. Si no se especifica, se tomará el timestamp actual
+```
 
-`python main.py`
-
-El programa le pedirá datos como el monto inicial, la apuesta y el numero de corridas a ejecutar. Finalmente, guardará los resultados en un archivo JSON con el timestamp.
