@@ -1,4 +1,5 @@
 import argparse
+import numpy as np
 import json
 from random import random
 from datetime import datetime
@@ -18,6 +19,8 @@ parser.add_argument('-i', '--interactivo',
 parser.add_argument('-f', '--filename',
                     help="Nombre de archivo personalizado. Si no se especifica, se tomará el timestamp actual",
                     default=f'simulacion-{datetime.now().timestamp()}.json')
+parser.add_argument('-e', '--estadisticas', action='store_true',
+                    help='Especifica si quiere mostrar las estadisticas de ejecución (default: False)', default=False)
 
 
 def jugar(monto_inicial: int, apuesta_inicial: int) -> dict:
@@ -60,3 +63,9 @@ if __name__ == "__main__":
     with open(filename := args.filename, 'w') as f:
         json.dump(corridas, f, indent=4)
     print(f'Resultados de simulación guardados en "{filename}"')
+    if args.estadisticas:
+        victorias: int = np.count_nonzero([1 if corrida['meta_alcanzada'] == 'SI' else 0 for corrida in corridas])
+        avg: float = victorias / c
+        print(f"Probabilidad porcentual de llegar a la meta: {avg:.0%}")
+        ganancia: float = 100 * avg - m
+        print(f"Ganancia esperada: {ganancia:.2g}u.m.")
