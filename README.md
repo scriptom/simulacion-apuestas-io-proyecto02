@@ -4,14 +4,16 @@ Sencillo proyecto de simulador de apuestas desarrollado para el Proyecto Prácti
 
 ## Enunciado
 
-> Un juego consiste en duplicar la apuesta cada vez que se pierda o se gane. Si se apuesta X unidades 
-monetarias (u.m.) y se pierde, entonces, se apuesta 2X u.m.; si se vuelve a perder, entonces se apuesta 4X 
-u.m. y así sucesivamente. Sin embargo, si al seguir esta política la apuesta es mayor que la cantidad que se 
-dispone, entonces, se apuesta lo que se tiene disponible. Por otro lado, cada vez que se gane, la apuesta será 
-de 2X u.m y asi sucesivamente. Si la cantidad inicial disponible es de 60 u.m., la apuesta es de 10 u.m., la 
-ganancia es igual a la cantidad apostada, la probabilidad de ganar es de 0.5 y se quiere tener 100 u.m. Si se 
-llega a obtener una cantidad mayor solo se reconocerán 100 u.m. , ¿cuál es la probabilidad porcentual de 
-llegar a la meta?, ¿cuál es la ganancia esperada?. Realice 50 corridas.
+> Un juego consiste en duplicar la apuesta cada vez que se pierde. Si se apuesta X 
+unidades monetarias (u.m.) y se pierde, entonces, se apuesta 2X u.m.; si se vuelve a 
+perder, entonces se apuesta 4X u.m. y así sucesivamente. Sin embargo, si al seguir 
+esta política la apuesta es mayor que la cantidad que se dispone, entonces, se apuesta 
+lo que se tiene disponible. Por otro lado, cada vez que se gane, la apuesta será de X 
+u.m. Si la cantidad inicial disponible es de 60 u.m., la apuesta es de 10 u.m., la 
+ganancia es igual a la cantidad apostada, la probabilidad de ganar es de 0.5 y se 
+quiere tener 100 u.m. Si se llega a obtener una cantidad mayor solo se reconocerán 
+100 u.m., ¿cuál es la probabilidad porcentual de llegar a la meta?, ¿cuál es la ganancia 
+esperada?. Realice 50 corridas.
 
 ## Instalacion
 

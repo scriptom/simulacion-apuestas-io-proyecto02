@@ -38,7 +38,7 @@ def jugar(monto_inicial: int, apuesta_inicial: int) -> dict:
             'nuevo_monto': (monto := min(100, monto + apuesta) if victoria else max(monto - apuesta, 0))
         })
         derrotas_consecutivas = 0 if victoria else derrotas_consecutivas + 1
-        apuesta = apuesta * 2 if victoria else apuesta * 2 ** derrotas_consecutivas
+        apuesta = apuesta if victoria else apuesta * 2 ** derrotas_consecutivas
         num_apuestas = num_apuestas + 1
     return {
         'meta_alcanzada': 'SI' if monto == 100 else 'QUIEBRA',
