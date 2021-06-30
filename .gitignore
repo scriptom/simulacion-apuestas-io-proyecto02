@@ -1,3 +1,5 @@
 venv/
 simulacion-*.json
+simulacion-*.html
+simulacion-*.xlsx
 .idea/
